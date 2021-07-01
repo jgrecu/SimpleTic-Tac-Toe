@@ -1,5 +1,6 @@
 package tictactoe;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -7,24 +8,15 @@ public class Main {
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
+        int round = 0;
 
         char[][] board = new char[3][3];
-        System.out.println("Enter cells: ");
-        String input = scanner.nextLine();
 
-        int index = 0;
-        int x = 0;
-        int o = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = input.charAt(index) == '_' ? ' ' : input.charAt(index);
-                x += input.charAt(index) == 'X' ? 1 : 0;
-                o += input.charAt(index) == 'O' ? 1 : 0;
-                index++;
-            }
+        for (char[] row : board) {
+            Arrays.fill(row, ' ');
         }
-        printBoard(board);
 
+        printBoard(board);
 
         while (true) {
             System.out.println("Enter the coordinates: ");
@@ -46,31 +38,24 @@ public class Main {
             }
 
             if (board[row - 1][col - 1] == ' ') {
-                board[row - 1][col - 1] = 'X';
-                break;
+                board[row - 1][col - 1] = round % 2 == 0 ? 'X': 'O';
+                round++;
             } else {
                 System.out.println("This cell is occupied! Choose another one!");
+                continue;
+            }
+
+            printBoard(board);
+
+            if (checkSolved(board) == 'X' || checkSolved(board) == 'O') {
+                char winner = checkSolved(board);
+                System.out.println(winner + " wins");
+                break;
+            } else if (isBoardFull(board) && checkSolved(board) == '0') {
+                System.out.println("Draw");
+                break;
             }
         }
-
-        printBoard(board);
-
-//        boolean gameOver = isBoardFull(board);
-//        char winner = checkSolved(board);
-//
-//        if (Math.abs(x - o) > 1) {
-//            System.out.println("Impossible");
-//        } else if (gameOver && winner == '0') {
-//            System.out.println("Draw");
-//        } else if (!gameOver && winner == '0') {
-//            System.out.println("Game not finished");
-//        } else if (winner == 'X') {
-//            System.out.println("X wins");
-//        } else if (winner == 'O') {
-//            System.out.println("O wins");
-//        } else if (winner == 'I') {
-//            System.out.println("Impossible");
-//        }
      }
 
     public static void printBoard(char[][] board) {
