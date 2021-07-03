@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    enum State { Empty, X, O }
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
@@ -16,6 +15,7 @@ public class Main {
             Arrays.fill(row, ' ');
         }
 
+        printMenu();
         printBoard(board);
 
         while (true) {
@@ -59,15 +59,19 @@ public class Main {
      }
 
     public static void printBoard(char[][] board) {
-        System.out.println("---------");
-        for (char[] row : board) {
-            System.out.print('|' + " ");
-            for (char c : row) {
-                System.out.print(c + " ");
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                System.out.print(" " + board[i][j]);
+                if (j < board[0].length -1) {
+                    System.out.print(" |");
+                } else {
+                    System.out.println();
+                }
             }
-            System.out.println('|');
+            if (i < board.length - 1) {
+                System.out.println("---+---+---");
+            }
         }
-        System.out.println("---------");
     }
 
     public static char checkSolved(char[][] board) {
@@ -102,5 +106,11 @@ public class Main {
         }
         return true;
     }
-
+    
+    public static void printMenu() {
+        System.out.println("Simple Tic-Tac-Toe\n" +
+                        "The rules are simple, X starts, then O follows. " +
+                        "First to get 3 in a row, column or diagonal wins.\n" +
+                        "The coordinates are \"X Y\" from top left corner \"1 1\" to bottom right corner \"3 3\"");
+    }
 }
