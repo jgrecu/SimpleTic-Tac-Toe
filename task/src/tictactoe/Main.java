@@ -108,9 +108,7 @@ public class Main {
     }
     
     public static void printMenu() {
-        System.out.println("Simple Tic-Tac-Toe\n" +
-                        "The rules are simple, X starts, then O follows. " +
-                        "First to get 3 in a row, column or diagonal wins.\n" +
-                        "The coordinates are \"X Y\" from top left corner \"1 1\" to bottom right corner \"3 3\"");
+        System.out.println("Simple Tic-Tac-Toe\n\n" + 
+                           "The coordinates are \"X Y\" from top left corner \"1 1\" to bottom right corner \"3 3\"");
     }
 }
