@@ -10,11 +10,11 @@
 
 <h2 style="text-align: center;">Coordinates system</h2>
 
-<p>Suppose the top left cell has the coordinates (1, 1) and the bottom right cell has the coordinates (3, 3) like in this table:<br>
+<p>Suppose the top left cell has the coordinates (1 1) and the bottom right cell has the coordinates (3 3) like in this table:<br>
 <br>
-(1, 1) (1, 2) (1, 3)<br>
-(2, 1) (2, 2) (2, 3)<br>
-(3, 1) (3, 2) (3, 3)</p>
+(1 1) (1 2) (1 3)<br>
+(2 1) (2 2) (2 3)<br>
+(3 1) (3 2) (3 3)</p>
 
 <h2 style="text-align: center;">Example</h2>
 
