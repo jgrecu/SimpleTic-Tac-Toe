@@ -9,11 +9,7 @@ public class Main {
         final Scanner scanner = new Scanner(System.in);
         int round = 0;
 
-        char[][] board = new char[3][3];
-
-        for (char[] row : board) {
-            Arrays.fill(row, ' ');
-        }
+        char[][] board = createBoard();
 
         printMenu();
         printBoard(board);
@@ -21,21 +17,13 @@ public class Main {
         while (true) {
             System.out.println("Enter the coordinates: ");
             String[] rowStr = scanner.nextLine().split(" ");
-            if (!rowStr[0].matches("\\d+")) {
-                System.out.println("You should enter numbers!");
-                continue;
-            } else if (rowStr.length > 1 && !rowStr[1].matches("\\d+")) {
-                System.out.println("You should enter numbers!");
+
+            if (!areValidCoordinates(rowStr)) {
                 continue;
             }
-
+            
             int row = Integer.parseInt(rowStr[0]);
             int col = Integer.parseInt(rowStr[1]);
-
-            if (row > 3 || col > 3) {
-                System.out.println("Coordinates should be from 1 to 3!");
-                continue;
-            }
 
             if (board[row - 1][col - 1] == ' ') {
                 board[row - 1][col - 1] = round % 2 == 0 ? 'X': 'O';
@@ -58,7 +46,27 @@ public class Main {
                 break;
             }
         }
-     }
+    }
+
+    public static char[][] createBoard() {
+        char[][] board = new char[3][3];
+        for (char[] row : board) {
+            Arrays.fill(row, ' ');
+        }
+        return board;
+    }
+
+    private static boolean areValidCoordinates(String[] rowStr) {
+        if (!rowStr[0].matches("\\d+") || rowStr.length > 1 && !rowStr[1].matches("\\d+")) {
+            System.out.println("You should enter numbers!");
+            return false;
+        }
+        if (Integer.parseInt(rowStr[0]) > 3 || Integer.parseInt(rowStr[1]) > 3) {
+            System.out.println("Coordinates should be from 1 to 3!");
+            return false;
+        }
+        return true;
+    }
 
     public static void printBoard(char[][] board) {
         for (int i = 0; i < board.length; i++) {
