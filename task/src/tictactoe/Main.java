@@ -79,11 +79,11 @@ public class Main {
         for (int i = 0; i < board.length; i++) {
             // check the rows
             if(board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
-                winner = winner != '0' ? 'I' : board[i][0];
+                winner = board[i][0];
             }
             // check the columns
             if(board[0][i] != ' ' && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
-                winner = winner != '0' ? 'I' : board[0][i];
+                winner = board[0][i];
             }
         }
         // check left top to bottom diagonal
