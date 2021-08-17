@@ -50,9 +50,11 @@ public class Main {
             if (checkSolved(board) == 'X' || checkSolved(board) == 'O') {
                 char winner = checkSolved(board);
                 System.out.println(winner + " wins");
+                scanner.close();
                 break;
             } else if (isBoardFull(board) && checkSolved(board) == '0') {
                 System.out.println("Draw");
+                scanner.close();
                 break;
             }
         }
