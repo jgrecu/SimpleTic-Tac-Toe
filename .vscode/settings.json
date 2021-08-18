@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "task/src",
+        "src/tictactoe"
+    ]
+}

@@ -13,7 +13,7 @@ public class Main {
 
         printMenu();
         printBoard(board);
-
+        
         while (true) {
             System.out.println("Enter the coordinates: ");
             String[] rowStr = scanner.nextLine().split(" ");
