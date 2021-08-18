@@ -1,3 +1,5 @@
+package tictactoeoop;
+
 public enum CellState {
     EMPTY(" "),
     X("X"),
