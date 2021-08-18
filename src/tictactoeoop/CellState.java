@@ -4,8 +4,8 @@ public enum CellState {
     EMPTY(" "),
     X("X"),
     O("O");
-    
-    String name;
+
+    final String name;
 
     CellState(String name) {
         this.name = name;
