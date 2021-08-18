@@ -1,3 +1,5 @@
+package tictactoeoop;
+
 public class GameBoard {
     Cell[][] board = new Cell[3][3];
 
