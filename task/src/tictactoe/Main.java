@@ -89,19 +89,19 @@ public class Main {
         for (int i = 0; i < board.length; i++) {
             // check the rows
             if(board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
-                winner = board[i][0];
+                return board[i][0];
             }
             // check the columns
             if(board[0][i] != ' ' && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
-                winner = board[0][i];
+                return board[0][i];
             }
         }
         // check left top to bottom diagonal
         if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
-            winner = board[0][0];
+            return board[0][0];
             // check right top to bottom diagonal
         } else if (board[0][2] != ' ' && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
-            winner = board[0][2];
+            return board[0][2];
         }
         return winner;
     }
