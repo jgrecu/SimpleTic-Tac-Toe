@@ -1,3 +1,5 @@
+package tictactoeoop;
+
 import java.util.Scanner;
 
 public class Game {
