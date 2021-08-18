@@ -1,3 +1,5 @@
+package tictactoeoop;
+
 public class Cell {
     CellState status;
 
